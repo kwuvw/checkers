@@ -25,13 +25,14 @@ def main(page: ft.Page):
         alignment=ft.alignment.center,
     )
 
+    checkers_list = allFunc.checkers_builder(desk, page)
+    
 
     page.add(
         ft.Stack(
-            allFunc.checkers_builder(desk),
+            checkers_list,
+
         )
     )
-
-print('hello world')
 
 ft.app(main)
