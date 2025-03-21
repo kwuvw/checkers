@@ -13,25 +13,22 @@ def main(page: ft.Page):
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    desk = ft.Container(
-        content=ft.Image(
-            src="images/desk.png",
-            width=500,
-            height=500,
-            fit=ft.ImageFit.COVER,
-        ),
-        height=500,
-        width=500,
-        alignment=ft.alignment.center,
-    )
 
-    checkers_list = allFunc.checkers_builder(desk, page)
+    desk_info = allFunc.desk_builder()
+    desk = desk_info[0]
+    white_checkers = desk_info[1]
+    black_checkers = desk_info[2]
     
 
     page.add(
-        ft.Stack(
-            checkers_list,
-
+        ft.Container(
+            content=ft.Stack(
+                desk,
+                width=500,
+                height=500
+            ),
+            alignment=ft.alignment.center,
+            expand=True
         )
     )
 
